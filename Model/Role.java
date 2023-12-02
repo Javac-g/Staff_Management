@@ -1,0 +1,5 @@
+package Model;
+
+public enum Role {
+    COMMON_USER,ADMIN,TECH,VIP,FRAUD,SUSPENDED,PENDING_VERIFICATION;
+}
