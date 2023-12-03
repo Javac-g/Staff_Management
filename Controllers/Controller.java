@@ -24,7 +24,7 @@ public class Controller {
                 }
                 case 2 ->{
                     view.print_msg("Lets find user");
-                    User user = model.find(view.getStr("first name"), view.getStr("last name"));
+                    User user = model.find(view.getUUID());
                     if (user != null){
                         view.print_user(user);
                     }else {
@@ -34,8 +34,7 @@ public class Controller {
                 }
                 case 3 -> {
                     view.print_msg("Lets update user");
-                    User user = model.update(view.getStr("searched first name"),
-                            view.getStr("searched last name"),
+                    User user = model.update(view.getUUID(),
                             view.getStr("New first name"),
                             view.getStr("New last name"),
                             view.getStr("New position"),

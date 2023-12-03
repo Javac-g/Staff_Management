@@ -96,6 +96,6 @@ public class User {
     }
     @Override
     public String toString(){
-        return String.join(" ","Name:",first_name," ",last_name);
+        return "\nName: " + getLast_name() + " " + getFirst_name() + "\nID: "+ getId() + "\nPosition: " + getPosition();
     }
 }

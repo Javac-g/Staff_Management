@@ -10,13 +10,21 @@ public class AddUserPanel extends JPanel implements ActionListener {
 
     JLabel firstNameLabel,lastNameLabel,position;
     JTextField firstNameField,lastNameField,positionField;
+    JTextArea textArea;
+
     JButton saveButton = new JButton("Save");
     private Model model;
     public AddUserPanel(Model model){
         this.model = model;
-        setBackground(Color.CYAN);
-        setLayout(new GridLayout(4,2,10,10));
 
+        setLayout(new GridLayout(5,2,10,10));
+
+        textArea = new JTextArea();
+        textArea.setLineWrap(true);
+        textArea.setOpaque(true);
+        textArea.setForeground(Color.GREEN);
+        textArea.setWrapStyleWord(true);
+        textArea.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         firstNameLabel = new JLabel("Enter first name: ");
         firstNameField = new JTextField();
 
@@ -27,6 +35,7 @@ public class AddUserPanel extends JPanel implements ActionListener {
         positionField = new JTextField();
 
         saveButton.addActionListener(this);
+
         add(firstNameLabel);
         add(firstNameField);
         add(lastNameLabel);
@@ -35,6 +44,7 @@ public class AddUserPanel extends JPanel implements ActionListener {
         add(positionField);
         add(new JLabel());
         add(saveButton);
+        add(textArea);
 
 
     }
@@ -46,8 +56,12 @@ public class AddUserPanel extends JPanel implements ActionListener {
         String position = positionField.getText();
 
         User user = model.add(first_name,last_name,position);
+
         if (user != null){
-            JOptionPane.showMessageDialog(saveButton,"Saved");
+            textArea.setText("" + user.getId());
+            JOptionPane.showMessageDialog(this,"Saved: " + user.getId(),"User id", JOptionPane.INFORMATION_MESSAGE);
+        }else{
+            JOptionPane.showMessageDialog(saveButton,"ERROR");
         }
 
         firstNameField.setText("");

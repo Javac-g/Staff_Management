@@ -1,0 +1,19 @@
+import com.formdev.flatlaf.FlatDarkLaf; // or FlatLightLaf for a light theme
+// Other necessary imports
+
+public class MainFrame extends JFrame {
+    public MainFrame() {
+        // Set FlatLaf as the Look and Feel
+        try {
+            UIManager.setLookAndFeel(new FlatDarkLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize FlatLaf");
+        }
+
+        // Rest of your code for the main frame...
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> new MainFrame());
+    }
+}

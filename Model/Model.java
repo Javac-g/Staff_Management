@@ -19,16 +19,16 @@ public class Model {
                         && user.getLast_name().equals(last_name))
                 .collect(Collectors.toList());
     }
-    public User find(String first_name,String last_name){
+    public User find(UUID uuid){
         for(User user: userList){
-            if (user.getFirst_name().equals(first_name) && user.getLast_name().equals(last_name)){
+            if (user.getId().equals(uuid)){
                 return user;
             }
         }
         return null;
     }
-    public User update(String fseach,String ssearch,String newFirstName,String newLastName,String newPostion,Role role){
-        User toUp = find(fseach,ssearch);
+    public User update(UUID uuid,String newFirstName,String newLastName,String newPostion,Role role){
+        User toUp = find(uuid);
         if(toUp != null){
             toUp.setFirst_name(newFirstName);
             toUp.setLast_name(newLastName);

@@ -33,5 +33,9 @@ public class View {
         System.out.println("Enter " + msg + ": ");
         return scanner.next();
     }
+    public UUID getUUID(){
+        System.out.println("Enter UUID: ");
+        return UUID.fromString( scanner.next());
+    }
 
 }
