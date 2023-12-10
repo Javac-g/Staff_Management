@@ -96,11 +96,15 @@ public class FindUserPanel extends JPanel implements ActionListener {
     }
     private void IdSearch(UUID uuid){
          User user = model.find(uuid);
-        JOptionPane.showMessageDialog(result,
-                "\nFirst name: " + user.getFirst_name() +
-                "\nLast name: " + user.getLast_name() +
-                "\nID: " + user.getId() +
-                "\nPosition: " + user.getPosition());
+         if(user != null){
+            JOptionPane.showMessageDialog(result,
+                    "\nFirst name: " + user.getFirst_name() +
+                    "\nLast name: " + user.getLast_name() +
+                    "\nID: " + user.getId() +
+                    "\nPosition: " + user.getPosition());
+         }else{
+             JOptionPane.showMessageDialog(result, "Not found");
+         }
     }
     public void allMatchSearch(String x, String y){
         List<User> users =  model.findMatch(x,y);

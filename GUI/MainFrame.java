@@ -17,7 +17,7 @@ public class MainFrame extends JFrame implements ActionListener {
     private JPanel buttons;
     private JButton add,find, update,delete,menu;
     private Map<String , Runnable>  actions ;
-    private  Model model = new Model();
+    private final Model model = new Model();
 
     public MainFrame(){
         try {
@@ -74,7 +74,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
         actions.put("Update user",() ->{ change_panel(new UpdateUserPanel(model));});
 
-        actions.put("Delete user",() ->{change_panel(new DeleteUserPanel());});
+        actions.put("Delete user",() ->{change_panel(new DeleteUserPanel(model));});
     }
 
     public void change_panel(JPanel panel){
