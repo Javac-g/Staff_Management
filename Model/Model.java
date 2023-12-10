@@ -6,7 +6,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 public class Model {
-    private List<User> userList  = new ArrayList<>();
+    private final List<User> userList  = new ArrayList<>();
 
     public User add(String first_name,String last_name,String position){
         User user = new User(first_name,last_name,position);
@@ -29,11 +29,24 @@ public class Model {
     }
     public User update(UUID uuid,String newFirstName,String newLastName,String newPostion,Role role){
         User toUp = find(uuid);
+        if((newFirstName == null) || newFirstName.isEmpty()) {
+            newFirstName = toUp.getFirst_name();
+        }
+        if(newLastName == null || newLastName.isEmpty()){
+            newLastName = toUp.getLast_name();
+        }
+        if(newPostion == null || newPostion.isEmpty()){
+            newPostion = toUp.getPosition();
+        }
+        if (role == null){
+            role = toUp.getRole();
+        }
         if(toUp != null){
             toUp.setFirst_name(newFirstName);
             toUp.setLast_name(newLastName);
             toUp.setPosition(newPostion);
             toUp.setRole(role);
+            return toUp;
         }
         return null;
     }

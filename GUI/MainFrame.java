@@ -72,7 +72,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
         actions.put("Find user",() ->{change_panel(new FindUserPanel(model));});
 
-        actions.put("Update user",() ->{ change_panel(new UpdateUserPanel());});
+        actions.put("Update user",() ->{ change_panel(new UpdateUserPanel(model));});
 
         actions.put("Delete user",() ->{change_panel(new DeleteUserPanel());});
     }
