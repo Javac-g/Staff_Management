@@ -1,5 +1,5 @@
 package GUI;
-import com.formdev.flatlaf.FlatDarkLaf;
+//import com.formdev.flatlaf.FlatDarkLaf;
 import GUI.panels.*;
 import Model.Model;
 
@@ -21,11 +21,11 @@ public class MainFrame extends JFrame implements ActionListener {
 
     public MainFrame(){
         try {
-            UIManager.setLookAndFeel(new FlatDarkLaf());
+           // UIManager.setLookAndFeel(new FlatDarkLaf());
         } catch (Exception ex) {
             System.err.println("Failed to initialize FlatLaf");
         }
-        MenuPanel menuPanel = new MenuPanel();
+        MenuPanel menuPanel = new MenuPanel(model);
         setPreferredSize(new Dimension(600,300));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -43,7 +43,7 @@ public class MainFrame extends JFrame implements ActionListener {
         setLocationRelativeTo(null);
         setTitle("Menu");
         setVisible(true);
-
+        change_panel(new MenuPanel(model));
     }
     private void init_buttons(){
 

@@ -22,17 +22,24 @@ public class AddUserPanel extends JPanel implements ActionListener {
         textArea = new JTextArea();
         textArea.setLineWrap(true);
         textArea.setOpaque(true);
+        firstNameLabel = new JLabel("First name: ");
+        firstNameField = new JTextField();
+        firstNameField.setOpaque(true);
+        firstNameField.setForeground(Color.GREEN);
         textArea.setForeground(Color.GREEN);
         textArea.setWrapStyleWord(true);
         textArea.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        firstNameLabel = new JLabel("Enter first name: ");
-        firstNameField = new JTextField();
+       
 
-        lastNameLabel = new JLabel("Enter last name: ");
+        lastNameLabel = new JLabel("Last name: ");
         lastNameField = new JTextField();
+        lastNameField.setOpaque(true);
+        lastNameField.setForeground(Color.GREEN);
 
-        position = new JLabel("Enter position: ");
+        position = new JLabel("Position: ");
         positionField = new JTextField();
+        positionField.setOpaque(true);
+        positionField.setForeground(Color.GREEN);
 
         saveButton.addActionListener(this);
 
@@ -61,6 +68,7 @@ public class AddUserPanel extends JPanel implements ActionListener {
             textArea.setText("" + user.getId());
             JOptionPane.showMessageDialog(this,"Saved: " + user.getId(),"User id", JOptionPane.INFORMATION_MESSAGE);
         }else{
+
             JOptionPane.showMessageDialog(saveButton,"ERROR");
         }
 
