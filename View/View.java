@@ -9,7 +9,7 @@ public class View {
     private static final Scanner scanner = new Scanner(System.in);
 
     public void print_menu(){
-        System.out.println("___   M E N U   ___");
+        System.out.println("__   M E N U   __");
         System.out.println("1 - add user");
         System.out.println("2 - find user");
         System.out.println("3 - update user");
